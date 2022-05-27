@@ -1,0 +1,34 @@
+import { Link } from "react-router-dom";
+import ProductCard from "../product-card/product-card.component";
+import { Typography } from '@mui/material';
+import styled from "styled-components"
+
+const CategoryPreviewContainer = styled.div`
+display: flex;
+flex-direction: column;
+margin-bottom: 30px;
+`
+
+const Preview = styled.div`
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+column-gap: 20px;
+`
+
+const CategoryPreview = ({title, products}) => {
+    return (
+        <CategoryPreviewContainer>
+            <Typography variant="h5"gutterBottom sx={{ cursor: 'pointer'}}>
+                <Link to={title} className="title">{title.toUpperCase()}</Link>
+            </Typography>
+            <Preview>
+                {products
+                .filter((_, idx) => idx < 4)
+                .map((product) => <ProductCard key={product.id} product={product}/> )
+                }
+            </Preview>
+        </CategoryPreviewContainer>
+    )
+}
+
+export default CategoryPreview;
