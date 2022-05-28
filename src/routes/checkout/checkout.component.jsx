@@ -1,9 +1,9 @@
-import { useContext } from "react";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
-import { CartContext } from "../../context/cart.context";
 import { Grid } from '@mui/material';
 import { styled as style } from "@mui/material/styles";
 import styled from "styled-components"
+import { useSelector } from "react-redux";
+import { selectCartItems, selectCartTotal } from "../../store/cart/cart.selector";
 
 const CheckoutContainer = styled.div`
     width: 55%;
@@ -29,7 +29,10 @@ const HeaderBlock = style('div')({
       },
 })
 const Checkout = () => {
-    const {cartItems, cartTotal } = useContext(CartContext)
+
+    const cartItems = useSelector(selectCartItems)
+    const cartTotal = useSelector(selectCartTotal)
+
     return (
         <CheckoutContainer>
             <CheckoutHeader>
