@@ -4,7 +4,8 @@ import ProductCard from "../../components/product-card/product-card.component";
 import Typography from '@mui/material/Typography';
 import styled from "styled-components"
 import { useSelector } from "react-redux";
-import { selectCategoriesMap } from "../../store/categories/category.selector";
+import { selectCategoriesIsLoading, selectCategoriesMap } from "../../store/categories/category.selector";
+import Spinner from "../../components/spinner/spinner.component";
 
 const StyledDivContainer = styled.div`
 display: grid;
@@ -16,6 +17,7 @@ row-gap: 50px;
 const Category = () => {
    const {category} = useParams();
    const categoriesMap = useSelector(selectCategoriesMap);
+   const isLoading = useSelector(selectCategoriesIsLoading);
    const [products, setProducts] = useState(categoriesMap[category])
 
    useEffect(() => {
@@ -25,9 +27,12 @@ const Category = () => {
        // if we have components relying on asynchronoiusl fetched code, put a safeguard to check undefined data
        <>
             <Typography variant="h4" gutterBottom>{category.toUpperCase()}</Typography>
-            <StyledDivContainer>
+            {!isLoading 
+            ? ( <Spinner /> ) 
+            : ( <StyledDivContainer>
                 {products?.map((product) => <ProductCard key={product.id} product={product}/>)}
-            </StyledDivContainer>
+            </StyledDivContainer> )
+            }
        </>
    )
 }
