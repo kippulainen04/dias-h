@@ -27,7 +27,7 @@ const Category = () => {
        // if we have components relying on asynchronoiusl fetched code, put a safeguard to check undefined data
        <>
             <Typography variant="h4" gutterBottom>{category.toUpperCase()}</Typography>
-            {!isLoading 
+            {isLoading 
             ? ( <Spinner /> ) 
             : ( <StyledDivContainer>
                 {products?.map((product) => <ProductCard key={product.id} product={product}/>)}

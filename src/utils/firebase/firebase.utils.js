@@ -85,7 +85,7 @@ export const createUserDocumentFromAuth = async (
       console.log("error creaing the user", error.message);
     }
   }
-  return userDocRef;
+  return userSnapshot;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -104,3 +104,17 @@ export const signOutUser = async () => await signOut(auth);
 
 //Hook into some kind of stream of events, and trigger sth based on these changes
 export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe()
+        resolve(userAuth)
+      },
+      reject
+    )
+
+  })
+}
