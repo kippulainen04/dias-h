@@ -4,6 +4,7 @@ import { styled as style } from "@mui/material/styles";
 import styled from "styled-components"
 import { useSelector } from "react-redux";
 import { selectCartItems, selectCartTotal } from "../../store/cart/cart.selector";
+import PaymentForm from "../../components/payment-form/payment-form.component";
 
 const CheckoutContainer = styled.div`
     width: 55%;
@@ -56,6 +57,7 @@ const Checkout = () => {
                         <CheckoutItem key={cartItem.id} cartItem={cartItem}/>
             ))}
             <Grid sx={{mt: 30, ml: 'auto', fontSize: 36}} className="total">Total: ${cartTotal}</Grid>
+            <PaymentForm />
         </CheckoutContainer>
     )
 }
