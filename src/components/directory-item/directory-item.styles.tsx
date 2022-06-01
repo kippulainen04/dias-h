@@ -13,6 +13,7 @@ background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `
 
 export const Body = styled.div`
+width: 180px;
 height: 90px;
 padding: 0 25px;
 display: flex;
@@ -67,5 +68,12 @@ overflow: hidden;
 
 &:last-child {
   margin-left: 7.5px;
+}
+
+
+@media screen and (max-width: 800px)
+{
+    height: 200px;
+    min-width: 60%;
 }
 `
