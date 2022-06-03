@@ -5,27 +5,36 @@ import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector"
 import { selectCurrentUser } from "../../store/user/user.selector"
 
-import styled from"styled-components";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
+import { styled } from "@mui/material/styles";
+import { red } from "@mui/material/colors";
 
 
-const PaymentFormContainer = styled.div`
-height: 300px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-`
 
-const FormContainer = styled.form`
-height: 100px;
-min-width: 500px;
-`
+const PaymentFormContainer = styled('div')({
+    height: '300px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+})
 
-const PaymentButton = styled(Button)`
-margin-left: auto;
-margin-top: 30px;
-`
+
+const FormContainer = styled('form')({
+    height: '100px',
+    minWidth: '600px',
+})
+
+const PaymentButton = styled(Button)({
+    marginLeft: 'auto',
+    marginTop: '30px',
+    marginBottom: '30px',
+})
+
+const RemindText = styled(Typography)({
+    color: red[800],
+})
+
 
 const PaymentForm = () => {
     const stripe = useStripe();
@@ -78,10 +87,10 @@ const PaymentForm = () => {
     return (
         <PaymentFormContainer>
             <FormContainer onSubmit={paymentHandler}>
-                <Typography variant="h5">Credit Card Payment: </Typography>
+                <Typography variant="h5" gutterBottom>Credit Card Payment: </Typography>
                 <CardElement />
-                <br />
-                <PaymentButton isLoading={isProcessingPayment} buttonType={BUTTON_TYPE_CLASSES.inverted}>Pay Now</PaymentButton>
+                <PaymentButton isLoading={isProcessingPayment} buttonType={BUTTON_TYPE_CLASSES.inverted}>Pay Now €{amount}</PaymentButton>
+                <RemindText variant="subtitle2" gutterBottom>*For a test card number, please try: 4242 4242 4242 4242 - 04/24 242 42424</RemindText>
             </FormContainer>
         </PaymentFormContainer>
     );

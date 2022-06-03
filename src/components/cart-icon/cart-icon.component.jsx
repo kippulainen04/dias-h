@@ -1,30 +1,28 @@
+import * as React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartCount, selectIsCartOpen } from "../../store/cart/cart.selector";
 import { setIsCartOpen } from "../../store/cart/cart.action";
-import { ReactComponent as ShoppingSvg } from "../../assets/shopping-bag.svg";
-import styled from "styled-components"
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-export const ShoppingIcon = styled(ShoppingSvg)`
-width: 24px;
-height: 24px;
-`
 
-export const CartIconContainers = styled.div`
-width: 45px;
-height: 45px;
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-`
+const CartIconContainers = styled('div')({
+    width: '45px',
+    height: '45px',
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+})
 
-export const ItemCount = styled.span`
-position: absolute;
-font-size: 10px;
-font-weight: bold;
-bottom: 12px;
-`
+const StyledBadge = styled(Badge)(({ theme }) => ({
+    '& .MuiBadge-badge': {
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: '0 4px',
+    },
+}));
 
 
 const CartIcon = () => {
@@ -37,8 +35,11 @@ const CartIcon = () => {
 
     return (
         <CartIconContainers onClick={toggleIsCartOpen}>
-            <ShoppingIcon/>
-            <ItemCount>{cartCount}</ItemCount>
+            <IconButton aria-label="cart">
+                <StyledBadge badgeContent={cartCount} color="primary">
+                    <ShoppingCartIcon />
+                </StyledBadge>
+            </IconButton>
         </CartIconContainers>
     )
 }

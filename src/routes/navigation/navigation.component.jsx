@@ -7,7 +7,7 @@ import { selectIsCartOpen } from "../../store/cart/cart.selector";
 import { signOutStart } from "../../store/user/user.action";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import './navigation.styles.jsx'
-import {NavigationContainer, LogoContainer, NavLinksContainer, NavLink} from "./navigation.styles.jsx";
+import {NavigationContainer, LogoContainer, NavLinksContainer, NavLink } from "./navigation.styles.jsx";
 
 
 const Navigation = () => {
