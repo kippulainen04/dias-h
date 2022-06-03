@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Typography } from "@mui/material";
+import { Grid, Paper, Typography } from "@mui/material";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector"
@@ -7,36 +7,87 @@ import { selectCurrentUser } from "../../store/user/user.selector"
 
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { styled } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { ReactComponent as Payment } from "../../assets/stripe.svg";
+import AlertInfo from "./alert-info.component";
 
 
 
-const PaymentFormContainer = styled('div')({
-    height: '300px',
+const PaymentFormContainer = styled(Grid)(({ theme }) => ({
+    display: 'flex',
+    height: '70vh',
+    width: '75vw',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    [theme.breakpoints.down('md')]: {
+        flexDirection: 'column',
+        marginTop: '30px',
+        padding: 0,
+        margin: 0
+      },
+}))
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-})
-
+    padding: '20px',
+    marginLeft: '30px',
+    [theme.breakpoints.down('md')]: {
+        marginLeft: 'unset',
+        marginTop: '20px'
+      },
+}))
 
 const FormContainer = styled('form')({
-    height: '100px',
-    minWidth: '600px',
+    width: '100%',
 })
 
+const PaymentContainer = styled(Grid)({
+    display: 'flex', 
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 5,
+})
+
+const StyledTypoGraphy = styled(Typography)(({ theme }) => ({
+    [theme.breakpoints.down('md')]: {
+        fontSize: '20px',
+        marginTop: '5px'
+      },
+}))
 const PaymentButton = styled(Button)({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginLeft: 'auto',
-    marginTop: '30px',
-    marginBottom: '30px',
+    marginTop: '20px',
+    marginBottom: '15px',
 })
 
-const RemindText = styled(Typography)({
-    color: red[900],
-    textAlign: 'center',
-})
+const Stripe = styled(Payment)(({ theme }) => ({
+    width: '70vw',
+    height: '70vh',
+    [theme.breakpoints.down('md')]: {
+        width: '50vw',
+        height: '50vh',
+      },
+}))
+
+const RemindText = styled(Typography)`
+    background: linear-gradient(
+    to right,
+    #ff9966,
+    #ff5e62
+  );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+`
 
 
 const PaymentForm = () => {
@@ -53,7 +104,7 @@ const PaymentForm = () => {
             return;
         }
 
-        setIsProcessingPayment(true);
+        // setIsProcessingPayment(true);
 
         const response = await fetch('/.netlify/functions/create-payment-intent', {
             method: 'post',
@@ -92,12 +143,23 @@ const PaymentForm = () => {
 
     return (
         <PaymentFormContainer>
-            <FormContainer onSubmit={paymentHandler}>
-                <Typography variant="h5" gutterBottom>Credit Card Payment: </Typography>
-                <CardElement />
-                <PaymentButton isLoading={isProcessingPayment} buttonType={BUTTON_TYPE_CLASSES.inverted}>Pay Now €{amount}</PaymentButton>
-                <RemindText variant="subtitle2" gutterBottom>*For a test card number, please try: 4242 4242 4242 4242 - 04/24 242 42424</RemindText>
-            </FormContainer>
+            <Stripe />
+            <StyledPaper elevation={3}>
+                <FormContainer onSubmit={paymentHandler}>
+                    <PaymentContainer>
+                        <StyledTypoGraphy variant="h5" gutterBottom>Credit Card Payment: </StyledTypoGraphy>
+                        <AlertInfo />  
+                    </PaymentContainer>             
+                    <CardElement />
+                    <PaymentButton 
+                    isLoading={isProcessingPayment} 
+                    onClick={() => setIsProcessingPayment(true)} 
+                    buttonType={BUTTON_TYPE_CLASSES.base}>
+                        Pay Now €{amount}
+                    </PaymentButton>
+                    <RemindText variant="subtitle2" gutterBottom>*For a test card number, please try: 4242 4242 4242 4242 - 04/24 242 42424</RemindText>
+                </FormContainer>
+            </StyledPaper>
         </PaymentFormContainer>
     );
 };

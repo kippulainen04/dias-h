@@ -18,8 +18,8 @@ margin-bottom: 25px;
 
 export const LogoContainer = styled(Link)`
 height: 100%;
-width: 70px;
-padding: 25px;
+width: 75px;
+padding: 0 auto;
 @media screen and (max-width: 800px)
 {
     width: 50px;
@@ -37,8 +37,12 @@ justify-content: flex-end;
 @media screen and (max-width: 800px)
 {
     width: 80%;
-}
+};
 
+@media screen and (max-width: 500px)
+{
+    font-size: 15px
+}
 `
 
 export const NavLink = styled(Link)`

@@ -25,7 +25,7 @@ const GridContainer = styled(Grid)({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
 })
 
 const StyledTypograpgy = styled(Typography)`
@@ -60,7 +60,7 @@ const Success = () => {
     return (
         <Grid sx={{ display: 'flex', width: '100%', height: '70vh', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
             <StyledPaper elevation={6}>
-                <GridContainer>
+                <GridContainer sx={{mb: 5}}>
                     <Delivery />
                     <StyledTypograpgy variant="h4">Thank Your For Your Order!</StyledTypograpgy>
                     <Typography variant="subtitle1" sx={{mb: 3}}>Check your email inbox for the receipt.</Typography>
