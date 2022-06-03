@@ -8,6 +8,8 @@ import { selectCurrentUser } from "../../store/user/user.selector"
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { styled } from "@mui/material/styles";
 import { red } from "@mui/material/colors";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 
@@ -32,15 +34,17 @@ const PaymentButton = styled(Button)({
 })
 
 const RemindText = styled(Typography)({
-    color: red[800],
+    color: red[900],
+    textAlign: 'center',
 })
 
 
 const PaymentForm = () => {
     const stripe = useStripe();
     const elements = useElements();
-    const amount = useSelector(selectCartTotal)
-    const currentUser = useSelector(selectCurrentUser)
+    const amount = useSelector(selectCartTotal);
+    const navigate = useNavigate();
+    const currentUser = useSelector(selectCurrentUser);
     const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
     const paymentHandler = async (e) => {
@@ -76,13 +80,15 @@ const PaymentForm = () => {
           setIsProcessingPayment(false);
 
           if(paymentResult.error) {
-              alert(paymentResult.error);
+              toast.error("This didn't work", paymentResult.error);
           } else {
               if (paymentResult.paymentIntent.status === 'succeeded' ){
-                  alert('Payment Successful')
+                  toast.success('Payment Successful')
+                  navigate("/checkout/success")
               }
           }
     };
+
 
     return (
         <PaymentFormContainer>
