@@ -11,6 +11,7 @@ import Checkout from "./routes/checkout/checkout.component";
 
 import { GlobalStyle } from "./global.styles"
 import Success from "./components/success-purchase/success-purchase";
+import { CssBaseline } from "@mui/material";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const App = () => {
 
   return (
     <div>
+    <CssBaseline />
     <GlobalStyle />
     <Routes>
       <Route path="/" element={<Navigation />}>

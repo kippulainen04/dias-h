@@ -19,7 +19,7 @@ const Button = ({children, buttonType, isLoading, ...otherProps}) => {
     const CustomeButton = getButton(buttonType);
     console.log(isLoading)
     return (
-        <CustomeButton variant="contained" color="primary" disabled={isLoading} {...otherProps}>
+        <CustomeButton type="submit" variant="contained" color="primary" disabled={isLoading} {...otherProps}>
             {isLoading ? <Spinner /> : children}
         </CustomeButton>
     )

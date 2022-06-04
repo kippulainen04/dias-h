@@ -2,9 +2,14 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
 import Button, {BUTTON_TYPE_CLASSES} from "../button/button.component";
-import FormInput from "../form-input/form-input.component";
+import { Box, styled, TextField, Typography } from "@mui/material";
 
-import "./sign-in-form.styles.scss";
+
+
+const ButtonContainer = styled('div')({
+  display: 'flex',
+  justifyContent: 'space-between',
+})
 
 const defaultFormFields = {
     email: '',
@@ -47,16 +52,19 @@ const SignInForm = () => {
       };
 
     return (
-        <div className="sign-up-container">
-            <h2>Already have an account?</h2>
-            <span> Sign in with your email and password</span>
-            <form onSubmit={handleSubmit}>
-                <FormInput label="Email" type="email" required name="email" onChange={handleChange} value={email}/>
-                <FormInput label="Password" type="password" required name="password" onChange={handleChange} value={password}/>
-                <div className="buttons-container">
-                  <Button type="submit">Sign In</Button>
+        <div>
+            <form onSubmit={handleSubmit} className="sign-in-form">
+                <Typography variant="h5" style={{ fontWeight: 700 }} gutterBottom> Sign in</Typography>
+                <Box sx={{mb: 1}}>
+                  <TextField size="small" id="margin-none" label="Email" type="email" required name="email" onChange={handleChange} value={email}/>
+                </Box>
+                <Box sx={{mb: 1}}>
+                  <TextField size="small" id="margin-none" label="Password" type="password" required name="password" onChange={handleChange} value={password}/>
+                </Box>
+                <ButtonContainer>
+                  <Button type="submit"sx={{mr: 1}}>Sign In</Button>
                   <Button type="button" buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWithGoogle}>Google Sign In</Button>
-                </div>  
+                </ButtonContainer>  
             </form>
         </div>
     )

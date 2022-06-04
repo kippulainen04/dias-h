@@ -2,7 +2,7 @@ import { Button, Grid, Link, Paper, styled, Typography } from "@mui/material";
 import { teal } from "@mui/material/colors";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as OnTheWay } from "../../assets/delivery.svg";
+import { ReactComponent as SuperThank } from "../../assets/thankyou.svg";
 import { FireWork } from "./firework-confetti";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
@@ -16,7 +16,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
       },
 }));
 
-const Delivery = styled(OnTheWay)({
+const ThankYou = styled(SuperThank)({
     width: '200px',
     height: '200px',
 })
@@ -61,7 +61,7 @@ const Success = () => {
         <Grid sx={{ display: 'flex', width: '100%', height: '70vh', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
             <StyledPaper elevation={6}>
                 <GridContainer sx={{mb: 5}}>
-                    <Delivery />
+                    <ThankYou />
                     <StyledTypograpgy variant="h4">Thank Your For Your Order!</StyledTypograpgy>
                     <Typography variant="subtitle1" sx={{mb: 3}}>Check your email inbox for the receipt.</Typography>
                     <Typography variant="subtitle1">If you have any questions, please email</Typography>

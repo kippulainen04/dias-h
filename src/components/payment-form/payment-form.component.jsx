@@ -104,7 +104,7 @@ const PaymentForm = () => {
             return;
         }
 
-        // setIsProcessingPayment(true);
+        setIsProcessingPayment(true);
 
         const response = await fetch('/.netlify/functions/create-payment-intent', {
             method: 'post',
@@ -134,8 +134,7 @@ const PaymentForm = () => {
               toast.error("This didn't work", paymentResult.error);
           } else {
               if (paymentResult.paymentIntent.status === 'succeeded' ){
-                  toast.success('Payment Successful')
-                  navigate("/checkout/success")
+                  toast.success('Payment Successful') && navigate("/checkout/success")
               }
           }
     };
@@ -153,7 +152,7 @@ const PaymentForm = () => {
                     <CardElement />
                     <PaymentButton 
                     isLoading={isProcessingPayment} 
-                    onClick={() => setIsProcessingPayment(true)} 
+                    // onClick={() => setIsProcessingPayment(true)} 
                     buttonType={BUTTON_TYPE_CLASSES.base}>
                         Pay Now €{amount}
                     </PaymentButton>
