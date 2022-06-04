@@ -1,30 +1,30 @@
 import { Button, styled } from "@mui/material"
 
-export const BaseButton = styled(Button)`
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
+export const BaseButton = styled(Button)({
+  cursor: 'pointer',
+  display: 'flex',
+  justifYContent: 'center',
+  alignItems: 'center',
+})
 
-export const GoogleSignInButton = styled(BaseButton)`
-background-color: #4285f4;
-color: white;
+export const GoogleSignInButton = styled(BaseButton)({
+  backgroundColor: '#4285f4',
+  color: 'white',
 
-&:hover {
-  background-color: #357ae8;
-  border: none;
+  '&:hover': {
+    backgroundColor: '#357ae8',
+    border: 'none',
+  }
+})
+
+export const InvertedButton = styled(BaseButton)({
+backgroundColor: 'white',
+color: 'black',
+border: '1px solid black',
+
+'&:hover': {
+  backgroundColor: 'black',
+  color: 'white',
+  border: 'none',
 }
-`
-
-export const InvertedButton = styled(BaseButton)`
-background-color: white;
-color: black;
-border: 1px solid black;
-
-&:hover {
-  background-color: black;
-  color: white;
-  border: none;
-}
-`
+})

@@ -54,12 +54,12 @@ const SignInForm = () => {
     return (
         <div>
             <form onSubmit={handleSubmit} className="sign-in-form">
-                <Typography variant="h5" style={{ fontWeight: 700 }} gutterBottom> Sign in</Typography>
+                <Typography variant="h4" style={{ fontWeight: 600, textShadow: '1px 1px 2px' }} gutterBottom> Sign in</Typography>
                 <Box sx={{mb: 1}}>
-                  <TextField size="small" id="margin-none" label="Email" type="email" required name="email" onChange={handleChange} value={email}/>
+                  <TextField size="small" label="Email" type="email" required name="email" onChange={handleChange} value={email}/>
                 </Box>
                 <Box sx={{mb: 1}}>
-                  <TextField size="small" id="margin-none" label="Password" type="password" required name="password" onChange={handleChange} value={password}/>
+                  <TextField size="small" label="Password" type="password" required name="password" onChange={handleChange} value={password}/>
                 </Box>
                 <ButtonContainer>
                   <Button type="submit"sx={{mr: 1}}>Sign In</Button>

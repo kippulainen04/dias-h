@@ -13,6 +13,7 @@ import {NavigationContainer, LogoContainer, NavLinksContainer, NavLink } from ".
 const Talaria = styled(Hermes)(({ theme }) => ({
     width: '75px',
     height: '75px',
+    fontWeight: '500',
     [theme.breakpoints.down('md')]: {
         width: '60px',
         height: '60px'
@@ -34,16 +35,16 @@ const Navigation = () => {
         <>
             <NavigationContainer >
                 <LogoContainer to="/" sx={{display: 'flex', justifyContent: 'center'}}>
-                    <Talaria className="logo" />
+                    <Talaria />
                 </LogoContainer>
-                <NavLinksContainer >
+                <NavLinksContainer style={{ fontWeight: 500 }}>
                     <Link className="nav-link" to="/shop">
                         SHOP
                     </Link>
                     {currentUser 
                     ? (<NavLink as="span" onClick={signOutUser}>SIGN OUT</NavLink>)
                     : (<NavLink to="/auth">
-                        SIGN IN
+                        MEMBER
                        </NavLink>)
                     }
                     <CartIcon />  

@@ -1,29 +1,25 @@
 import { Link } from "react-router-dom";
 import ProductCard from "../product-card/product-card.component";
-import { Typography } from '@mui/material';
-import styled from "styled-components"
+import { styled, Typography } from '@mui/material';
 
-const CategoryPreviewContainer = styled.div`
-display: flex;
-flex-direction: column;
-margin-bottom: 30px;
-@media screen and (max-width: 800px)
-{
-  align-items: center;
-}  
-`
+const CategoryPreviewContainer = styled('div')(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    marginBottom: '30px',
+    [theme.breakpoints.down('md')]: {
+    alignItems: 'center',
+    }  
+}));
 
-const Preview = styled.div`
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-column-gap: 20px;
-@media screen and (max-width: 800px)
-{
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-
-}  
-`
+const Preview = styled('div')(({ theme }) => ({
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    columnGap: '30px',
+    [theme.breakpoints.down('md')]: {
+        gridTemplateColumns: 'repeat(2, 1fr)',
+        gridGap: '20px',
+    },
+}));
 
 const CategoryPreview = ({title, products}) => {
     return (
@@ -33,7 +29,7 @@ const CategoryPreview = ({title, products}) => {
             </Typography>
             <Preview>
                 {products
-                .filter((_, idx) => idx < 4)
+                .filter((_, idx) => idx < 3)
                 .map((product) => <ProductCard key={product.id} product={product}/> )
                 }
             </Preview>

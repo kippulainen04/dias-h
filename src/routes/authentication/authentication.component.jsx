@@ -113,16 +113,6 @@ const Container = styled('div', {
         transition: '1.1s 0.4s ease-in-out',
     },
 
-    ".transparent": {
-        margin: '0',
-        background: 'none',
-        border: '2px solid #fff',
-        width: '130px',
-        height: '41px',
-        fontWeight: '600',
-        fontSize: '0.8rem',
-    },
-
     [theme.breakpoints.down('md')]: {
         minHeight: '800px',
         height: '90vh',    
@@ -161,12 +151,6 @@ const Container = styled('div', {
         ".panel, .content": {
             paddingRight: '15%',
             transition: '0.9s 0.8s ease-in-out',
-        },
-
-        ".transparent": {
-            width: '110px',
-            height: '35px',
-            fontSize: '0.7rem',
         },
     
         ".image": {
@@ -228,37 +212,37 @@ const Authentication = () => {
     const [open, setOpen] = useState(false)
 
     return (
-        <Container class="container" open={open}>
+        <Container className="container" open={open}>
                 <AuthenticationContainer>
                     <Grid className="signin-signup">
                         <SignInForm />
                         <SignUpForm />
                     </Grid>
                 </AuthenticationContainer>
-                <Grid class="panels-container">
-                    <Grid class="panel left-panel">
-                        <Grid class="content content-sign-up" open={open}>
+                <Grid className="panels-container">
+                    <Grid className="panel left-panel">
+                        <Grid className="content content-sign-up" open={open}>
                             <Typography variant="h5" style={{ fontWeight: 700 }}>New here ?</Typography>
                             <Typography variant="body1">
                             Sign up a new account
                             </Typography>
-                            <Button variant="contained" onClick={() => setOpen(true)} open={open} class="btn transparent">
+                            <Button variant="contained" onClick={() => setOpen(true)} open={open}>
                             Sign up
                             </Button>
                         </Grid>
-                        <Unloading class="image image-sign-up" alt="" />
+                        <Unloading className="image image-sign-up" alt="" />
                     </Grid>
-                    <Grid class="panel right-panel">
-                        <Grid class="content content-sign-in" open={open} >
+                    <Grid className="panel right-panel">
+                        <Grid className="content content-sign-in" open={open} >
                             <Typography variant="h5" style={{ fontWeight: 700 }}>One of us ?</Typography>
                             <Typography variant="body1">
                             Sign in with your email or Google account
                             </Typography>
-                            <Button variant="contained" onClick={() => setOpen(false)} open={open} class="btn transparent">
+                            <Button variant="contained" onClick={() => setOpen(false)} open={open}>
                             Sign in
                             </Button>
                         </Grid>
-                        <ICanFly  class="image image-sign-in" alt="" />
+                        <ICanFly  className="image image-sign-in" alt="" />
                     </Grid>
               </Grid>
         </Container>      

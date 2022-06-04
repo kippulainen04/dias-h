@@ -1,32 +1,32 @@
 export const mockData = [
   {
     id: 1,
-    title: 'hats',
+    title: 'reebok',
     imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
     route: "shop/hats"
   },
   {
     id: 2,
-    title: 'jackets',
+    title: 'vans',
     imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
     route: "shop/jackets"
   },
   {
     id: 3,
-    title: 'sneakers',
+    title: 'converse',
     imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
     route: "shop/sneakers"
 
   },
   {
     id: 4,
-    title: 'womens',
+    title: 'adidas',
     imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
     route: "shop/womens"
   },
   {
     id: 5,
-    title: 'mens',
+    title: 'nike',
     imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
     route: "shop/mens"
   },

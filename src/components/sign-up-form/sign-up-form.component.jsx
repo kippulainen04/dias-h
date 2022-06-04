@@ -52,7 +52,7 @@ const SignUpForm = () => {
     return (
         <div>
             <form onSubmit={handleSubmit} className="sign-up-form">
-                <Typography variant="h5" style={{ fontWeight: 700 }} gutterBottom> Sign Up</Typography>
+                <Typography variant="h4" style={{ fontWeight: 600, textShadow: '1px 1px 2px' }} gutterBottom> Sign Up</Typography>
                 <Box sx={{mb: 1}}>
                 <TextField size="small" label="Display Name" type="text" required name="displayName" onChange={handleChange} value={displayName}/>
                 </Box>
