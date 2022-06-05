@@ -9,6 +9,8 @@ import { signOutStart } from "../../store/user/user.action";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import './navigation.styles.jsx'
 import {NavigationContainer, LogoContainer, NavLinksContainer, NavLink } from "./navigation.styles.jsx";
+import { motion } from "framer-motion";
+
 
 const Talaria = styled(Hermes)(({ theme }) => ({
     width: '75px',
@@ -32,7 +34,9 @@ const Navigation = () => {
 
     const signOutUser = () => dispatch(signOutStart());
     return (
-        <>
+        <motion.div 
+        initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
+        {/*  initial={{width: 0}} animate={{width: '100%'}} exit={{x: window.innerWidth, transition: '0.1s ease-in'}}> */}
             <NavigationContainer >
                 <LogoContainer to="/" sx={{display: 'flex', justifyContent: 'center'}}>
                     <Talaria />
@@ -52,7 +56,7 @@ const Navigation = () => {
                 {isCartOpen && <CartDropdown />}
             </NavigationContainer>
             <Outlet />
-        </>
+        </motion.div>
     );
 };
 

@@ -152,7 +152,6 @@ const PaymentForm = () => {
                     <CardElement />
                     <PaymentButton 
                     isLoading={isProcessingPayment} 
-                    // onClick={() => setIsProcessingPayment(true)} 
                     buttonType={BUTTON_TYPE_CLASSES.base}>
                         Pay Now €{amount}
                     </PaymentButton>
