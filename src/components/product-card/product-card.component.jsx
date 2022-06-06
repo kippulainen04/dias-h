@@ -62,6 +62,12 @@ const StyledSneaker = styled('div', {
         justifyContent: 'center',
         transition: 'all 0.75s ease-out',
         transform: open ? 'translateZ(150px)' : 'translateZ(0px)',
+        [theme.breakpoints.down('md')]: {
+            transform: open ? 'translateZ(110px)' : 'translateZ(0px)',
+        },
+        [theme.breakpoints.down('sm')]: {
+            transform: open ? 'translateZ(80px)' : 'translateZ(0px)',
+        },
 
         ".circle": {
             width: '120px',
@@ -108,7 +114,11 @@ const Intro = styled('div', {
     transition: 'all 0.75s ease-out',
     [theme.breakpoints.down("md")]: {
         fontSize: '16px',
-      }
+        transform: open ? 'translateZ(70px)' : 'translateZ(0px)',
+      },
+      [theme.breakpoints.down('sm')]: {
+        transform: open ? 'translateZ(40px)' : 'translateZ(0px)',
+    },  
 }));
 
 const Sizes = styled('div', {
@@ -119,7 +129,12 @@ const Sizes = styled('div', {
     paddingBottom: '20px',
     transform: open ? 'translateZ(80px)' : 'translateZ(0px)',
     transition: 'all 0.75s ease-out',
-
+    [theme.breakpoints.down("md")]: {
+        transform: open ? 'translateZ(40px)' : 'translateZ(0px)',
+      },
+    [theme.breakpoints.down('sm')]: {
+        transform: open ? 'translateZ(20px)' : 'translateZ(0px)',
+    },
     "button": {
         padding: '5px 15px',
         cursor: 'pointer',
