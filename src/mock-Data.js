@@ -7,9 +7,9 @@ export const mockData = [
   },
   {
     id: 2,
-    title: 'vans',
+    title: 'fila',
     imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-    route: "shop/vans"
+    route: "shop/fila"
   },
   {
     id: 3,

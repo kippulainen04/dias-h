@@ -2,22 +2,27 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../../components/product-card/product-card.component";
 import Typography from '@mui/material/Typography';
-import styled from "styled-components"
 import { useSelector } from "react-redux";
 import { selectCategoriesIsLoading, selectCategoriesMap } from "../../store/categories/category.selector";
 import Spinner from "../../components/spinner/spinner.component";
+import { Grid, styled } from "@mui/material";
 
-const StyledDivContainer = styled.div`
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-column-gap: 20px;
-row-gap: 50px;
-@media screen and (max-width: 800px)
-{
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-} 
-`
+const StyledDivContainer = styled('div')(({ theme }) => ({
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    columnGap: '20px',
+    rowGap: '30px',
+
+    [theme.breakpoints.down('md')]: {
+        gridTemplateColumns: 'repeat(2, 1fr)',
+        gridGap: '15px',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+        gridTemplateColumns: 'repeat(1, 3fr)',
+        gridGap: '5px',
+    },
+}));
 
 const Category = () => {
    const {category} = useParams();
@@ -34,9 +39,16 @@ const Category = () => {
             <Typography variant="h4" gutterBottom>{category.toUpperCase()}</Typography>
             {isLoading 
             ? ( <Spinner /> ) 
-            : ( <StyledDivContainer>
-                {products?.map((product) => <ProductCard key={product.id} product={product}/>)}
-            </StyledDivContainer> )
+            : ( <Grid sx={{display: 'flex',
+            flexDirection: 'column',
+            marginBottom: '30px',
+            alignItems: 'center',
+              }}>
+                    <StyledDivContainer>
+                        {products?.map((product) => 
+                        <ProductCard key={product.id} product={product}/>)}
+                    </StyledDivContainer>
+                </Grid> )
             }
        </>
    )
