@@ -61,9 +61,9 @@ const StyledSneaker = styled('div', {
         alignItems: 'center',
         justifyContent: 'center',
         transition: 'all 0.75s ease-out',
-        transform: open ? 'translateZ(150px)' : 'translateZ(0px)',
+        transform: open ? 'translateZ(120px)' : 'translateZ(0px)',
         [theme.breakpoints.down('md')]: {
-            transform: open ? 'translateZ(110px)' : 'translateZ(0px)',
+            transform: open ? 'translateZ(100px)' : 'translateZ(0px)',
         },
         [theme.breakpoints.down('sm')]: {
             transform: open ? 'translateZ(80px)' : 'translateZ(0px)',
@@ -110,11 +110,11 @@ const Intro = styled('div', {
     marginBottom: '10px',
     alignItems: 'center',
     fontSize: '18px',
-    transform: open ? 'translateZ(120px)' : 'translateZ(0px)',
+    transform: open ? 'translateZ(80px)' : 'translateZ(0px)',
     transition: 'all 0.75s ease-out',
     [theme.breakpoints.down("md")]: {
         fontSize: '16px',
-        transform: open ? 'translateZ(70px)' : 'translateZ(0px)',
+        transform: open ? 'translateZ(60px)' : 'translateZ(0px)',
       },
       [theme.breakpoints.down('sm')]: {
         transform: open ? 'translateZ(40px)' : 'translateZ(0px)',
@@ -127,7 +127,7 @@ const Sizes = styled('div', {
     display: 'flex',
     justifyContent: 'space-between',
     paddingBottom: '20px',
-    transform: open ? 'translateZ(80px)' : 'translateZ(0px)',
+    transform: open ? 'translateZ(60px)' : 'translateZ(0px)',
     transition: 'all 0.75s ease-out',
     [theme.breakpoints.down("md")]: {
         transform: open ? 'translateZ(40px)' : 'translateZ(0px)',
