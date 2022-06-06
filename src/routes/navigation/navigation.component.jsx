@@ -111,7 +111,7 @@ const Navigation = () => {
         {/*  initial={{width: 0}} animate={{width: '100%'}} exit={{x: window.innerWidth, transition: '0.1s ease-in'}}> */}
             <NavigationContainer >
                 <LogoContainer to="/" sx={{display: 'flex', justifyContent: 'center'}}>
-                    <Talaria />
+                    <Talaria alt="logo" />
                 </LogoContainer>
                 
                 <StyledGrid container>
