@@ -61,7 +61,7 @@ const StyledSneaker = styled('div', {
         alignItems: 'center',
         justifyContent: 'center',
         transition: 'all 0.75s ease-out',
-        transform: open ? 'translateZ(200px) rotateZ(-45deg)' : 'translateZ(0px) rotateZ(0deg)',
+        transform: open ? 'translateZ(150px)' : 'translateZ(0px)',
 
         ".circle": {
             width: '120px',
@@ -104,7 +104,7 @@ const Intro = styled('div', {
     marginBottom: '10px',
     alignItems: 'center',
     fontSize: '18px',
-    transform: open ? 'translateZ(150px)' : 'translateZ(0px)',
+    transform: open ? 'translateZ(120px)' : 'translateZ(0px)',
     transition: 'all 0.75s ease-out',
     [theme.breakpoints.down("md")]: {
         fontSize: '16px',
@@ -117,7 +117,7 @@ const Sizes = styled('div', {
     display: 'flex',
     justifyContent: 'space-between',
     paddingBottom: '20px',
-    transform: open ? 'translateZ(100px)' : 'translateZ(0px)',
+    transform: open ? 'translateZ(80px)' : 'translateZ(0px)',
     transition: 'all 0.75s ease-out',
 
     "button": {
