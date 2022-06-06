@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { Grid, styled, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom"
 import { ReactComponent as Hermes } from "../../assets/talaria.svg";
@@ -10,7 +10,65 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 import './navigation.styles.jsx'
 import {NavigationContainer, LogoContainer, NavLinksContainer, NavLink } from "./navigation.styles.jsx";
 import { motion } from "framer-motion";
+import { AlternateEmail, Copyright, Instagram, Twitter } from "@mui/icons-material";
 
+const StyledGrid = styled(Grid)({
+    display: 'flex', 
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    marginRight: '10px',
+});
+
+const StyledTypo = styled(Typography)(({ theme }) => ({
+    fontSize: '12px',
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '8px',
+      },
+}));
+
+const StyledIcon = styled(Copyright)(({ theme }) => ({
+    fontSize: '14px',
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '10px',
+      },
+}));
+
+const StyledInstagram = styled(Instagram)(({ theme }) => ({
+    fontSize: '20px',
+    transition: 'all 2s ease-in-out',
+    ":hover": {
+        cursor:'pointer',
+        transform: 'translateY(-10px)',
+    },
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '16px',
+      },
+}));
+const StyledTwitter = styled(Twitter)(({ theme }) => ({
+    fontSize: '20px',
+    transition: 'all 2s ease-in-out',
+    ":hover": {
+        cursor:'pointer',
+        transform: 'translateY(-10px)',
+    },
+    
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '16px',
+      },
+}));
+const StyledEmail= styled(AlternateEmail)(({ theme }) => ({
+    fontSize: '20px',
+    transition: 'all 2s ease-in-out',
+    ":hover": {
+        cursor:'pointer',
+        transform: 'translateY(-10px)',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '16px',
+      },
+}));
 
 const Talaria = styled(Hermes)(({ theme }) => ({
     width: '75px',
@@ -41,6 +99,21 @@ const Navigation = () => {
                 <LogoContainer to="/" sx={{display: 'flex', justifyContent: 'center'}}>
                     <Talaria />
                 </LogoContainer>
+                
+                <StyledGrid container>
+                    <Grid item sx={{display: 'flex', flexDirection: 'row'}}>
+                        <StyledInstagram />
+                        <StyledTwitter />
+                        <StyledEmail />
+                    </Grid>
+                    <Grid item sx={{display: 'flex', flexDirection: 'row'}}>
+                                <StyledIcon />
+                                <StyledTypo variant="body2">Dais-h 2022</StyledTypo>
+                    </Grid>
+                    <Grid item >
+                        <StyledTypo variant="body2">Created by Nio Phan</StyledTypo>
+                    </Grid>
+                </StyledGrid>    
                 <NavLinksContainer style={{ fontWeight: 500 }}>
                     <Link className="nav-link" to="/shop">
                         SHOP

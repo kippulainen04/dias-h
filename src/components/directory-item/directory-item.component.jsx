@@ -14,7 +14,7 @@ export const Body = styled.div`
 width: 120px;
 height: 100px;
 padding: 0 10px;
-opacity: 0.7;
+opacity: 0.8;
 position: absolute;
 color: #4a4a4a;
 font-weight: 900;
