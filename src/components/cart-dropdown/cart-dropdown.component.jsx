@@ -54,9 +54,10 @@ const CartDropdown = () => {
     }
         
     const handleCheckout = () => {
-        handleClose();
         navigate("/checkout")
-    }
+        handleClose();
+    };
+
     return (
             <Modal
             open={isCartOpen}

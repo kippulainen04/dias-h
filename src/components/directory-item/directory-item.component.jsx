@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const BackgroundImage = styled.div`
 width: 100%;
@@ -32,7 +32,7 @@ display: flex;
 flex-wrap: wrap;
 align-items: center;
 justify-content: center;
-border: 1px solid black;
+border: 1px solid #ffffff;
 overflow: hidden;
 
 &:hover {
