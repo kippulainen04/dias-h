@@ -1,70 +1,129 @@
-# Getting Started with Create React App
+# Colors in Sneakers / Dais-h: Building a React Web Application with the use of Redux & Firebase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🎗️ Badges
+[![HTML](https://img.shields.io/badge/HTML-%23FFac45.svg?&style=for-the-badge&logo=html5&logoColor=white&color=orange)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS](https://img.shields.io/badge/CSS-%23FFac45.svg?&style=for-the-badge&logo=css3&logoColor=white&color=blue)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JAVASCRIPT-%23FFac45.svg?&style=for-the-badge&logo=javascript&logoColor=white&color=yellow)](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/)
+[![Sass](https://img.shields.io/badge/SASS-%23FFac45.svg?&style=for-the-badge&logo=sass&logoColor=white&color=cd6d93)](https://sass-lang.com/)
+[![ReactJs](https://img.shields.io/badge/REACT-%23FFac45.svg?&style=for-the-badge&logo=react&logoColor=61DBFB&color=black)](https://reactjs.org/)
+[![Redux](https://img.shields.io/badge/Redux-%23FFac45.svg?&style=for-the-badge&logo=redux&logoColor=764abc&color=black)](https://redux.js.org/)
+[![Firebase](https://img.shields.io/badge/FIREBASE-%23FFac45.svg?&style=for-the-badge&logo=firebase&logoColor=FFA611&color=fff)](https://redux.js.org/)
+[![Linkedin](https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)]([https://www.linkedin.com/](https://www.linkedin.com/in/nhan-phan-77358a141/))
+[![Github](http://img.shields.io/badge/github-%231877F2.svg?&style=for-the-badge&logo=github&logoColor=white&color=black)]([https://github.com/](https://github.com/kippulainen04))
 
-## Available Scripts
 
-In the project directory, you can run:
+![](https://i.imgur.com/pV8A16S.png)
 
-### `npm start`
+## 🚀 Overview
+Dais-h is an e-commercial React web application implementing ReactJs, React router, Redux & Firebase, along with the real payment gateway Stripe. Redux in this project plays a vital role as a global state management. With Redux, we can easily read and update the state in the whole tree of application, by using React hooks. Firebase additionally is used to store and retrieve user info and product's data by doing CRUD requrest to the endpoint of backend.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In this project, besides **[HTML](https://en.wikipedia.org/wiki/HTML#:~:text=The%20HyperText%20Markup%20Language%20or,(HyperText%20Markup%20Language)), [CSS](https://en.wikipedia.org/wiki/CSS), [Javascript](https://en.wikipedia.org/wiki/JavaScript)**, and **[ReactJs](https://en.wikipedia.org/wiki/React_(JavaScript_library))**, **Redux** is applied to empower the  Flux- architecture to make state management easier. The idea is to separate the state into its own components from React components for a better folder/file structures. **[Firebase](https://firebase.google.com/)** as a **Baas ([Backend As A Service](https://www.businessnewsdaily.com/4992-what-is-baas.html))** provides a means to link the UI and client-side logic to the backend provided as `Authentication, Firestore Database, Storage and so on`. Additionally, **[Progressive Web Application](https://web.dev/progressive-web-apps/)** is applied to help us measuring the quality of the web app. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🔑 Key Topic
 
-### `npm test`
+The following content will be covered in this README.md:
+ 1. [Learning Objectives](#learning)
+ 2. [Requirements](#requirement)
+ 3. [Installation & Usage](#tools)
+ 4. [Author](#author)
+ 5. [References & Helpful Links](#links)
+ 6. [Contributing](#contribution)
+ 7. [License](#license)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<div id='learning'/> 
 
-### `npm run build`
+## 🧑‍💻 Learning Objectives
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After fulfilling the project, I acquire knowledge to:
+* Build and style dynamic webpages with semantic **HTML** and **CSS** and **Javascript** with **ReactJs** library on top
+* Use **Eslint** to check nested elements, indentation, comments, and line breaks
+* Configure **Stripe** payment gateway and **Firebase** of Google cloud services
+* Implement the use of ReactJs for DOM manipulation and minify the files of our project with the help of Webpack from `create-react-app`
+* Implement the use of **Material UI, Sass and styled-component** and **Google font**, to advance the styling of the project and implement **Google's Material Design** concept
+* Implement **SCSS extenstion** styling via class, id and element selectors using external stylesheets and inline/nesting styles to make 3D popping up for characters
+* Implement the use of `.jsx` extension to build reuseable component for user interfact, along with `React hooks`
+* Implement the use of **CRUD** requests to the **Bass** service, along with `async/await` to retrieve data from Firebase
+* Perform common commands via the command line to interface with the operating system, such as navigating the file tree and creating, opening and comitting the file and directory to github
+* Use **Git workflow** to initialize projects, track changes, and host via remote server
+* Execute live deployment using **GitHub** Pages
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<div id='requirement'/> 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📋 Requirements
 
-### `npm run eject`
+**Build an e-commercial application that demonstrating the use of Redux & Firebase in `create-react-app` and apply `service-worker` to measure the quality of the project**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<div id='tools'/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## ⚡ Installation & Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Cloning the project & rendering on your local browser
+* The respository can be [cloned](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) as other github repository 
+* Then `npm start` runs the app in the development mode - Open [http://localhost:3000]
 
-## Learn More
+2. Using the live code
+* Open your webbrowser
+* Then add [this link](https://dais-h.netlify.app/) to your browser
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<div id='author'/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 👥 Author & Credit 
 
-### Code Splitting
+#### Author:
+* Nio Phan
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Credit:
+* Shoes pictures credited by [Fila](https://www.fila.com/), [Adidas](https://www.adidas.fi/), [Nike](https://www.nike.com/fi/), [Reebok](https://www.reebok.fi/), and [Converse](https://www.converse.com/fi)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<div id='links'/>
 
-### Making a Progressive Web App
+## 💡 References & Helpful Links
+* [Version Control](https://en.wikipedia.org/wiki/Version_control)
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [SASS](https://sass-lang.com/documentation/)
+* [ReactJs](https://reactjs.org/docs/create-a-new-react-app.html)
+* [Redux](https://redux.js.org/introduction/getting-started)
+* [Progressive Web Apps](https://web.dev/progressive-web-apps/)
+* [Google Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en)
+* [Google Fonts](https://fonts.google.com/)
+* [Firebase](https://firebase.google.com/)
+* [Stripe](https://stripe.com/docs/checkout/quickstart)
+* [Material UI](https://mui.com/material-ui/getting-started/overview/)
+* [Styled-component](https://styled-components.com/docs)
+* [Pro Git](https://git-scm.com/book/en/v2)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+<div id='contribution'/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 💭 Contributing
 
-### Deployment
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Please make sure to follow [Common Guidlines](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors) as appropriate.
 
-### `npm run build` fails to minify
+<div id='license'/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📝 License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
